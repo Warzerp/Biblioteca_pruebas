@@ -1,0 +1,76 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Biblioteca{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+</head>
+<body>
+  <header>
+    <strong>Biblioteca</strong>
+    <nav>
+      <a href="{% url 'pagina_principal:principal' %}">Inicio</a> · 
+      <a href="{% url 'pagina_principal:catalogo' %}">Catalogo</a> · 
+      <a href="{% url 'pagina_principal:reservar' %}">Reservar</a> ·
+      <a href="{% url 'pagina_principal:sesion' %}">Iniciar Sesion</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+
+<footer>
+  <dl>
+    <dt>Biblioteca</dt>
+    <dd>
+      <ul>
+        <li>Inicio</li>
+        <li>Catálogo de libros</li>
+        <li>Reservas</li>
+        <li>Preguntas Frecuentes</li>
+        <li>Sobre nosotros</li>
+      </ul>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>Contacto</dt>
+    <dd>
+      <ul>
+        <li>Dirección: Calle Victoria</li>
+        <li>Telefono: 0-600-libros</li>
+        <li>Correo: Labiblio@gmail.com</li>
+        <li>Horario: 24/7</li>
+      </ul>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>Enlaces utiles</dt>
+    <dd>
+      <ul>
+        <li>Términos y condiciones</li>
+        <li>Política de privacidad</li>
+        <li>Reglamento</li>
+        <li>Ayuda</li>
+      </ul>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>Recursos</dt>
+    <dd>
+      <ul>
+        <li>Google</li>
+        <li>PostgreSQL</li>
+        <li>Django</li>
+        <li>OpenLibraryAPI</li>
+      </ul>
+    </dd>
+  </dl>  
+</footer>
+</html>

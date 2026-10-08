@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Catalogo - Muchos Libros{% endblock %}
+
+{% block content %}
+<section class="panel">
+  <h1>Catalogo de libros</h1>
+  <p>Busca el libro que necesites.</p>
+</section>
+
+<section class="panel">
+  <input id="input"></input>
+  <button onclick="getbooks()">Buscar</button>
+  <div id="output"></div>
+</section>
+
+<script>
+  function getbooks(){
+    const output = document.getElementById('output');
+    output.innerHTML = "";
+    const query = document.getElementById('input').value;
+
+    fetch("https://openlibrary.org/search.json?q="+ encodeURIComponent(query)).then(response => response.json()).then(data => {
+      if (!data.docs) return;
+      const limit = Math.min(5, data.docs.length);
+      let htmlContent = "";
+
+        for (let i=0; i<limit; i++){
+          const book = data.docs[i];
+          const author = book.author_name ? book.author_name[0] : 'Autor desconocido';
+
+          let imgUrl = "";
+          if (book.cover_i) {
+            imgUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
+          } else if (book.isbn && book.isbn.length > 0) {
+            imgUrl = `https://covers.openlibrary.org/b/isbn/${book.isbn[0]}-M.jpg`;
+          }
+
+          const coverImg = imgUrl 
+          ? `<br><img  class="buscador" src="${imgUrl}" alt="Portada de ${book.title}"><br>` 
+          : '<br><i>(Sin portada disponible)</i><br>';
+
+          htmlContent += `<h2>${book.title}</h2><p>${author} - ${book.first_publish_year}</p>${coverImg}`;
+        }
+        output.innerHTML = htmlContent;
+    });
+    
+  }
+</script>
+
+{% endblock %}

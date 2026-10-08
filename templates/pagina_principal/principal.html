@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Biblioteca{% endblock %}
+
+{% block content %}
+<section class="panel">
+  <h1>Biblioteca</h1>
+  <p>Pagina Principal de la Biblioteca</p>
+</section>
+
+<section class="panel2">
+  <div>
+    <h1>¿Quienes somos?</h1>
+    <p>Bienvenido a la Biblioteca, tu espacio digital para explorar nuestro catálogo en línea, 
+    reservar libros y consultar colecciones digitales.</p>
+  </div>
+  <img src="https://www.babycontrol.com/blog/wp-content/uploads/2024/02/baby-control-agenda-digital-escuela-infantil-libros-aulas-lectura.jpg">
+</section>
+
+<section class="panel2">
+  <img src="https://www.unicauca.edu.co/wp-content/uploads/2024/01/IMG_7312-scaled.jpg">
+  <div>
+    <h1>Nuestro Catalogo</h1>
+    <p>El catálogo de libros de la biblioteca reúne una amplia variedad de ejemplares disponibles para la consulta y préstamo de los usuarios. 
+      La colección incluye libros de diferentes áreas del conocimiento, como literatura, ciencias, tecnología, historia, educación, arte, filosofía y ciencias sociales, entre otras.</p>
+      <a href="{% url 'pagina_principal:catalogo' %}">Visita nuestro catalogo aquí</a>
+  </div>
+</section>
+
+<section class="panel2">
+  <div>
+    <h1>Sistema de reservas</h1>
+    <p>La sección de reservas permite a los usuarios reservar libros disponibles en la biblioteca para asegurarse de que puedan acceder a ellos cuando los necesiten. 
+      Desde esta sección, los usuarios pueden consultar la información del libro, seleccionar el ejemplar de su interés y realizar una reserva de manera rápida y sencilla.</p>
+      <a href="{% url 'pagina_principal:reservar' %}">Realiza tu primera reserva</a>
+  </div>
+  <img src="https://www.comunidadbaratz.com/wp-content/uploads/Cada-euro-invertido-en-bibliotecas-se-multiplica-por-cuatro-en-beneficios-a-la-sociedad.jpg">
+</section>
+
+<section class="panel">
+  <div>
+    <h1>Preguntas frecuentes:</h1>
+    <dl>
+      <dt>¿Cómo puedo buscar un libro en el catálogo?</dt>
+      <dd>Puedes utilizar el buscador del catálogo e ingresar el título, autor o palabras clave relacionadas con el libro que deseas encontrar.</dd><br>
+
+      <dt>¿Cómo sé si un libro está disponible?</dt>
+      <dd>Al consultar un libro en el catálogo podrás verificar su estado y conocer si se encuentra disponible para préstamo o si está actualmente prestado.</dd><br>
+
+      <dt>¿Cómo puedo reservar un libro?</dt>
+      <dd>Selecciona el libro que deseas reservar y utiliza la opción “Reservar”. Una vez realizada la reserva, podrás consultar su estado desde tu cuenta.</dd><br>
+
+      <dt>¿Puedo reservar un libro que actualmente está prestado?</dt>
+      <dd>Sí. Si el libro no está disponible, puedes realizar una reserva para recibirlo cuando sea devuelto.</dd><br>
+
+      <dt>¿Cómo puedo cancelar una reserva?</dt>
+      <dd>Puedes cancelar una reserva desde la sección de “Mis reservas”, siempre que esta todavía no haya sido procesada.</dd>
+    </dl>
+  </div>
+</section>
+{% endblock %}
