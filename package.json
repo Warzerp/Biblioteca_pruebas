@@ -1,0 +1,11 @@
+{
+  "name": "doap-copia",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "cd frontend && npm start",
+    "server": ".\\.venv\\Scripts\\python manage.py runserver"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.17"
+  }
+}
